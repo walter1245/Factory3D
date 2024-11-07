@@ -123,91 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &928225439
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8700617353114198275, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.7272067
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.7027464
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 82.6327
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4783713570328844907, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1503766149200402111, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f9fffee4cc93c45d18471062b005a0d2, type: 2}
-    - target: {fileID: 65702495048144492, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_Name
-      value: 'rullo con uv '
-      objectReference: {fileID: 0}
-    - target: {fileID: 2368652740761421851, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 50a5d1da13e484edd90adcd67eea6223, type: 2}
-    - target: {fileID: 4102983063942095238, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f522f51980e0743d784835061bb4fb4e, type: 2}
-    - target: {fileID: 5763046640681724420, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 69a56e69f22584d1ba25b8922a6c9034, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0968e9540ecad427b88a3e545eb646f4, type: 3}
 --- !u!1 &997060283
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +132,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 997060285}
-  - component: {fileID: 997060284}
+  - component: {fileID: 997060286}
   m_Layer: 0
   m_Name: generateGrid
   m_TagString: Untagged
@@ -225,24 +140,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &997060284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 997060283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5530676fa0e3d4abcbbd1b95c742d9d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridData: {fileID: 11400000, guid: 373ceeb41b0b441c88c61e563378e7ac, type: 2}
-  gasPrefab: {fileID: 2619661799078950159, guid: c17ccc4a08dd141ffb306a91df1d2d6c, type: 3}
-  liquidPrefab: {fileID: 587266404860819844, guid: b95eae220bf904eee95577c4bb8abdb5, type: 3}
-  rockPrefab: {fileID: 4492044578125352985, guid: dc20bf438114441009731d03bab0766f, type: 3}
-  nonePrefab: {fileID: 4186313164802990724, guid: 9706aff1643b440b0a3c73ed29cdeb0e, type: 3}
-  planetSize: 10
 --- !u!4 &997060285
 Transform:
   m_ObjectHideFlags: 0
@@ -258,6 +155,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &997060286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997060283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd098f61c0d38496fb7b1e76b4dcab3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridData: {fileID: 0}
+  gasPrefab: {fileID: 0}
+  liquidPrefab: {fileID: 0}
+  rockPrefab: {fileID: 0}
+  nonePrefab: {fileID: 0}
+  planeUnitSize: 10
 --- !u!1 &1359594794
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,4 +366,3 @@ SceneRoots:
   - {fileID: 1359594797}
   - {fileID: 1575832404}
   - {fileID: 997060285}
-  - {fileID: 928225439}
