@@ -167,11 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd098f61c0d38496fb7b1e76b4dcab3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridData: {fileID: 0}
-  gasPrefab: {fileID: 0}
-  liquidPrefab: {fileID: 0}
-  rockPrefab: {fileID: 0}
-  nonePrefab: {fileID: 0}
+  gridData: {fileID: 11400000, guid: 373ceeb41b0b441c88c61e563378e7ac, type: 2}
+  gasPrefab: {fileID: 2619661799078950159, guid: c17ccc4a08dd141ffb306a91df1d2d6c, type: 3}
+  liquidPrefab: {fileID: 587266404860819844, guid: b95eae220bf904eee95577c4bb8abdb5, type: 3}
+  rockPrefab: {fileID: 4492044578125352985, guid: dc20bf438114441009731d03bab0766f, type: 3}
+  nonePrefab: {fileID: 4186313164802990724, guid: 9706aff1643b440b0a3c73ed29cdeb0e, type: 3}
   planeUnitSize: 10
 --- !u!1 &1359594794
 GameObject:
