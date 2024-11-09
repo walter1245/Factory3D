@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5408617942122849888}
   - component: {fileID: 6467117758615431595}
   - component: {fileID: 7201294349722678134}
+  - component: {fileID: 1352761845805126947}
   m_Layer: 0
   m_Name: Plane 2
   m_TagString: Untagged
@@ -108,6 +109,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1352761845805126947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587266404860819844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d5ec8f7f4b347a8a26be861420e894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceType: 2
 --- !u!1001 &5652979681972091919
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -163,13 +177,34 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4506669085557140673, guid: 0291808a863b8410fa5763fb5688dc19, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3771889105835209423}
   m_SourcePrefab: {fileID: 100100000, guid: 0291808a863b8410fa5763fb5688dc19, type: 3}
 --- !u!4 &797345681745444981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5000076121263537274, guid: 0291808a863b8410fa5763fb5688dc19, type: 3}
   m_PrefabInstance: {fileID: 5652979681972091919}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8140692514872774862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4506669085557140673, guid: 0291808a863b8410fa5763fb5688dc19, type: 3}
+  m_PrefabInstance: {fileID: 5652979681972091919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3771889105835209423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8140692514872774862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1d5ec8f7f4b347a8a26be861420e894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceType: 2
 --- !u!1001 &6517559544878217852
 PrefabInstance:
   m_ObjectHideFlags: 0
