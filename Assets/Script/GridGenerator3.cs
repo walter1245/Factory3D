@@ -32,7 +32,7 @@ public  class GridGenerator : MonoBehaviour
             { ResourceType.None, nonePrefab }
         };
 
-        GenerateGrid(); // Genera la griglia all'avvio
+      //  GenerateGrid(); // Genera la griglia all'avvio
     }
 
     public void GenerateGrid()

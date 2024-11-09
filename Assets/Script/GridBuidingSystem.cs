@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
+using Color = UnityEngine.Color;
 using ResourceType=GridData.ResourceType;
 
 public class GridBuidingSystem : MonoBehaviour
@@ -19,7 +21,12 @@ public class GridBuidingSystem : MonoBehaviour
     
     public int gridSizeX=10;
     public int gridSizeY=10;
-    public float cellSize=1f;
+    
+    
+    public float cellWidth=1f;   // Larghezza della cella
+    public float cellHeight=2f;  // Altezza della cella
+    
+    public Vector3 gridOffset=new Vector3(-5f,0f,-5f);
     
     private GameObject[,] placebuildings;        // Memorizza gli oggetti posizionati
     void Start()
@@ -39,17 +46,23 @@ public class GridBuidingSystem : MonoBehaviour
     private void PlaceBuildings() {
 	    // Usa il raycasting per trovare la posizione sulla griglia
 	    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+	  
 	    if (Physics.Raycast(ray, out RaycastHit hit)) 
-	    {
-		 int x= Mathf.FloorToInt(hit.point.x/cellSize); 
-		 int y = Mathf.FloorToInt(hit.point.y/cellSize);
+	    {  
+		    
+		    Vector3 gridOrigin = transform.position;
+		  
+		    int x = Mathf.FloorToInt((hit.point.x - gridOrigin.x) / cellWidth);
+		    int y = Mathf.FloorToInt((hit.point.z - gridOrigin.z) / cellHeight);
+
+		 Debug.Log($"Coordinate calcolate della griglia: ({x}, {y})");
 		 
 		 // Verifica che la posizione sia all'interno della griglia
 		 if (x>= 0&& x<gridSizeX && y>= 0 && y<gridSizeY) 
 		 {
 			 // Controlla se la cella è già occupata
-			 if (placebuildings[x,y] == null) 
-			 {
+			 Debug.Log($"Clic all'interno della griglia: ({x}, {y})");
+			 
 				 Vector2Int cellPos = new Vector2Int(x, y);
 				 
 				 // Determina il prefab corretto in base al tipo di costruzione
@@ -58,7 +71,7 @@ public class GridBuidingSystem : MonoBehaviour
 				 // *** Controllo specifico per l'estrattore ***
 				 if (currentBuildingType == BuidingType.Extractor) 
 				 {
-					 ResourceType resourceAtCell=GetResourceTypeAtCell(cellPos);
+					 ResourceType resourceAtCell=GetResourceTypeAtCell(hit);
 					 
 					 // Verifica se la cella contiene una risorsa compatibile con l'estrattore
 					 if (resourceAtCell != ResourceType.None)
@@ -79,17 +92,29 @@ public class GridBuidingSystem : MonoBehaviour
 					 prefabToPlace = conveyorPrefab;   // Piazzamento libero per il rullo
 				 }
 				 
-				 // Instanzia il prefab selezionato e memorizzalo nella griglia
-				 if (prefabToPlace != null) {
-					 Vector3 position=  new Vector3(x * cellSize, 0, y * cellSize);
-					 GameObject building = Instantiate(prefabToPlace, position, Quaternion.identity);
-					 placebuildings[x,y] = building;
+				 
+				 BuildingSize sizeData= prefabToPlace.GetComponent<BuildingSize>();
+				 if (sizeData!=null) {
+					 Vector2Int  buildingSize=new Vector2Int(sizeData.height, sizeData.width);
+					 // Verifica che tutte le celle richieste siano libere
+
+					 if (AreCellSAvaible(cellPos, buildingSize)) {
+						 // Calcola la posizione centrale per il posizionamento
+						 Vector3 centerPosition=CalculateCenterPosition(cellPos, buildingSize);
+						 // Instanzia il prefab selezionato e memorizzalo nella griglia
+						 if (prefabToPlace != null) {
+							 
+							 GameObject building = Instantiate(prefabToPlace, centerPosition, Quaternion.identity);
+							 MarkCellsAsOccupied(cellPos, buildingSize, building);
+						 }
+					 }
+					 else {
+						 Debug.Log("Non c'è spazio sufficiente per posizionare il macchinario!");
+					 }
 				 }
-			 }
-			 else
-			 {
-				 Debug.Log("La cella è già occupata!"); 
-			 }
+				 else {
+					 Debug.LogError("BuildingSize non trovato per il tipo: " + currentBuildingType);
+				 }
 		 }
 		 else 
 		 {
@@ -99,14 +124,47 @@ public class GridBuidingSystem : MonoBehaviour
 	    }
 	    
     }
+
+  
+
     // Funzione per ottenere il tipo di risorsa presente in una cella specifica
-    private ResourceType GetResourceTypeAtCell(Vector2Int cellPos) {
-	    foreach (var resourceCell in gridData.resourceCells) {
-		    if (resourceCell.position==cellPos) {
-			    return resourceCell.type;
-		    }
+    private ResourceType GetResourceTypeAtCell(RaycastHit hit) {
+	    Resources resources = hit.collider.gameObject.GetComponent<Resources>();
+	    if (resources != null) {
+		    return resources.resourceType;
 	    }
 	    return ResourceType.None;  // Nessuna risorsa trovata
     }
 
+    
+    
+    private bool AreCellSAvaible(Vector2Int startPos, Vector2Int buildingSize) {
+	    for (int x = 0; x < startPos.x; x++) {
+		    for (int y = 0; y < startPos.y; y++) {
+			    Vector2Int cell=new Vector2Int(startPos.x+x, startPos.y+y);
+
+			    if (cell.x>=gridSizeX||cell.y>=gridSizeY|| placebuildings[cell.x, cell.y] !=null) {
+				    return false;  // Cella occupata o fuori dai confini
+			    }
+		    }
+	    }
+	    return true;
+    }
+    
+     
+    // Calcola la posizione centrale per posizionare il prefab al centro dell'area occupata
+    private Vector3 CalculateCenterPosition(Vector2Int startPos, Vector2Int buildingSize) {
+	    float centerX = (startPos.x + (buildingSize.x - 1) / 2f) * cellWidth;
+	    float centerY = (startPos.y + (buildingSize.y - 1) / 2f) * cellHeight;
+	    
+	    return new Vector3(centerX, 0f, centerY);
+    }
+    
+    private void MarkCellsAsOccupied(Vector2Int cellPos, Vector2Int size, GameObject building) {
+	    for (int x = 0; x <size.x ; x++) {
+		    for (int y = 0; y < size.y; y++) {
+			    placebuildings[cellPos.x + x, cellPos.y + y] = building;
+		    }
+	    }
+    }
 }
