@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: -1503766149200402111, guid: b1c1bc55be1934b32b9b50583b1402b6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f9fffee4cc93c45d18471062b005a0d2, type: 2}
+      objectReference: {fileID: 2100000, guid: 3e30d2574f1b94e449df60248794dd64, type: 2}
     - target: {fileID: 919132149155446097, guid: b1c1bc55be1934b32b9b50583b1402b6, type: 3}
       propertyPath: m_Name
       value: rullo con uv  1
@@ -73,5 +73,27 @@ PrefabInstance:
     - {fileID: 65702495048144492, guid: b1c1bc55be1934b32b9b50583b1402b6, type: 3}
     - {fileID: -8700617353114198275, guid: b1c1bc55be1934b32b9b50583b1402b6, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b1c1bc55be1934b32b9b50583b1402b6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6469627425703056187}
   m_SourcePrefab: {fileID: 100100000, guid: b1c1bc55be1934b32b9b50583b1402b6, type: 3}
+--- !u!1 &3286249379907011322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b1c1bc55be1934b32b9b50583b1402b6, type: 3}
+  m_PrefabInstance: {fileID: 2403360583936753579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6469627425703056187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3286249379907011322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c86a5e9c1adc745e299c874e8f0c6cf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  width: 1
+  height: 1
