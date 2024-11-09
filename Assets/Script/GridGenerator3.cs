@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using ResourceType = GridData.ResourceType;
 
-public class GridGenerator : MonoBehaviour
+[ExecuteInEditMode]
+public  class GridGenerator : MonoBehaviour
 {
     public GridData gridData;  // Riferimento al GridData ScriptableObject
 
@@ -17,6 +18,8 @@ public class GridGenerator : MonoBehaviour
 
     // Dimensione del piano (default 10x10 unità)
     public float planeUnitSize = 10f;
+    
+    public Transform parentObject;
 
     void Start()
     {
@@ -32,13 +35,26 @@ public class GridGenerator : MonoBehaviour
         GenerateGrid(); // Genera la griglia all'avvio
     }
 
-    private void GenerateGrid()
+    public void GenerateGrid()
     {
         if (gridData == null)
         {
             Debug.LogError("GridData non assegnato.");
             return;
         }
+        // Elimina eventuali oggetti già esistenti sotto il parentObject
+        if (parentObject != null)
+        {
+            while (parentObject.childCount > 0)
+            {
+                DestroyImmediate(parentObject.GetChild(0).gameObject);
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Parent Object non assegnato. Creerò i modelli nella scena principale.");
+        }
+
 
         // Ciclo su tutte le celle della griglia, piazzando un modello per ogni cella
         for (int x = 0; x < gridData.gridSize.x; x++)
@@ -60,7 +76,7 @@ public class GridGenerator : MonoBehaviour
                 // Instanzia il prefab corrispondente
                 if (resourcesPrefab.TryGetValue(type, out GameObject prefab))
                 {
-                    GameObject model = Instantiate(prefab, worldPosition, Quaternion.identity);
+                    GameObject model = Instantiate(prefab, worldPosition, Quaternion.identity,parentObject);
                     model.name = $"{type}_Model_{x}_{y}"; // Assegna un nome per debug
                 }
                 else
