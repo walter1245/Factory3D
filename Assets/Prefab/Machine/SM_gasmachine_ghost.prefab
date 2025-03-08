@@ -67,18 +67,18 @@ PrefabInstance:
     - target: {fileID: -3187105417410182125, guid: 1938e897ed2324665b9ce74b851e4993, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 2d213c998e6284d46b44334aa1b11362, type: 2}
+      objectReference: {fileID: -6271897200390792742, guid: 1938e897ed2324665b9ce74b851e4993, type: 3}
     - target: {fileID: -3187105417410182125, guid: 1938e897ed2324665b9ce74b851e4993, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 6dc57cd5ee5b741d7b357f47e3d60cb2, type: 2}
+      objectReference: {fileID: -6271897200390792742, guid: 1938e897ed2324665b9ce74b851e4993, type: 3}
     - target: {fileID: -3187105417410182125, guid: 1938e897ed2324665b9ce74b851e4993, type: 3}
       propertyPath: m_Materials.Array.data[2]
       value: 
-      objectReference: {fileID: 2100000, guid: 76421109c70034ec191c26dc79574606, type: 2}
+      objectReference: {fileID: -6271897200390792742, guid: 1938e897ed2324665b9ce74b851e4993, type: 3}
     - target: {fileID: 919132149155446097, guid: 1938e897ed2324665b9ce74b851e4993, type: 3}
       propertyPath: m_Name
-      value: SM_gasmachine 1
+      value: SM_gasmachine_ghost
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
