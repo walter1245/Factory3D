@@ -5,25 +5,33 @@ using UnityEngine;
 public class Resources : MonoBehaviour
 {
     public bool hasExtractor=false;  // Controlla se c'è già un estrattore
-    private GameObject player;   // Riferimento al giocatore
+    public static Resources currentResources; // Riferimento alla risorsa corrente
+   
      
      private void OnTriggerEnter(Collider other) {
+       
         if(other.gameObject.tag=="Player")
         {
-            player=other.gameObject;
-              Debug.Log("Giocatore vicino alla risorsa!");
+
+            currentResources=this;
+            Debug.Log(currentResources);
+              Debug.Log("Giocatore vicino alla risorsa!1111");
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if(other.gameObject.tag=="Player")
         {
-            player=null;
-            Debug.Log("Giocatore lontano dalla risorsa!");
+            if(currentResources==this)
+            {
+             currentResources=null;
+             Debug.Log("Giocatore lontano dalla risorsa!");
+            }
+           
         }
     }
 
     public bool CanInteract() {
-       return player != null&& !hasExtractor;
+       return !hasExtractor;
     }
 }
